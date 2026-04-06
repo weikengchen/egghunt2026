@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 public class EggHuntClient implements ClientModInitializer {
 
     private static final String MOD_ID = "egghunt";
-    private static final double RENDER_DISTANCE = 500.0;
+    private static final double RENDER_DISTANCE = 300.0;
     private static final double RENDER_DIST_SQ = RENDER_DISTANCE * RENDER_DISTANCE;
 
     private static final int PINK = ARGB.color(255, 255, 105, 180);
@@ -179,7 +179,7 @@ public class EggHuntClient implements ClientModInitializer {
                 loc[2] - camPos.z
             );
 
-            submitBeam(poseStack, collector, animationTime, loc[1], color, 0.5F, 1.5F);
+            submitBeam(poseStack, collector, animationTime, loc[1] + 3, color, 0.2F, 0.25F);
 
             poseStack.popPose();
         }
