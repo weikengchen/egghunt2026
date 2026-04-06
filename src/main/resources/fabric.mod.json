@@ -1,0 +1,19 @@
+{
+    "schemaVersion": 1,
+    "id": "egghunt",
+    "version": "1.0.0",
+    "name": "Egg Hunt Beams",
+    "description": "Renders beacon-like light beams at egg hunt locations",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "com.egghunt.EggHuntClient"
+        ]
+    },
+    "accessWidener": "egghunt.accesswidener",
+    "depends": {
+        "fabricloader": ">=0.18.0",
+        "minecraft": "~1.21.11",
+        "fabric-api": "*"
+    }
+}
