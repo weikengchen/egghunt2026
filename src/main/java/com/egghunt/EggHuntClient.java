@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 public class EggHuntClient implements ClientModInitializer {
 
     private static final String MOD_ID = "egghunt";
-    private static final double RENDER_DISTANCE = 100.0;
+    private static final double RENDER_DISTANCE = 500.0;
     private static final double RENDER_DIST_SQ = RENDER_DISTANCE * RENDER_DISTANCE;
 
     private static final int PINK = ARGB.color(255, 255, 105, 180);
