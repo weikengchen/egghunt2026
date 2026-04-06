@@ -1,6 +1,7 @@
 package com.egghunt.mixin;
 
 import com.egghunt.EggHuntClient;
+import com.egghunt.EggHuntProgress;
 import com.egghunt.EggLocation;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,6 +24,7 @@ public class EntityGlowMixin {
         double ez = self.getZ();
 
         for (EggLocation loc : EggHuntClient.LOCATIONS) {
+            if (EggHuntProgress.isFinished(loc)) continue;
             double dx = loc.x() + 0.5 - ex;
             double dy = loc.y() - ey;
             double dz = loc.z() + 0.5 - ez;

@@ -4,7 +4,9 @@
     "compatibilityLevel": "JAVA_21",
     "client": [
         "EntityGlowMixin",
-        "BossHealthOverlayMixin"
+        "BossHealthOverlayMixin",
+        "InteractionMixin",
+        "NightVisionMixin"
     ],
     "injectors": {
         "defaultRequire": 1

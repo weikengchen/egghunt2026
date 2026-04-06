@@ -24,6 +24,7 @@ public class EggHuntTracker {
 
         for (int i = 0; i < EggHuntClient.LOCATIONS.length; i++) {
             EggLocation loc = EggHuntClient.LOCATIONS[i];
+            if (EggHuntProgress.isFinished(loc)) continue;
             double dx = loc.x() + 0.5 - px;
             double dy = loc.y() - py;
             double dz = loc.z() + 0.5 - pz;
@@ -34,14 +35,20 @@ public class EggHuntTracker {
             }
         }
 
-        if (bestIdx < 0) return null;
+        int done = EggHuntProgress.finishedCount();
+        int total = EggHuntClient.LOCATIONS.length;
+
+        if (bestIdx < 0) {
+            return Component.literal("All " + total + " eggs found!")
+                .withStyle(Style.EMPTY.withBold(true).withColor(ChatFormatting.GREEN));
+        }
 
         EggLocation loc = EggHuntClient.LOCATIONS[bestIdx];
         double distance = Math.sqrt(bestDistSq);
         String arrow = getDirection(player, loc);
 
-        // "Nearest Egg [12.3m] ➡ /w warpname — hint text"
-        return Component.literal("Nearest Egg ")
+        // "Nearest Egg (5/120) [12.3m] ➡ /w warpname — hint text"
+        return Component.literal("Nearest Egg (" + done + "/" + total + ") ")
             .withStyle(Style.EMPTY.withBold(true).withColor(loc.gold() ? ChatFormatting.GOLD : ChatFormatting.LIGHT_PURPLE))
             .append(Component.literal(String.format("[%.1fm] %s ", distance, arrow))
                 .withStyle(Style.EMPTY.withBold(false).withColor(ChatFormatting.GRAY)))
